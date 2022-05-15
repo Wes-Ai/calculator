@@ -27,6 +27,7 @@ html {
 }
 .display {
     border:1px solid red;
+    color:white;
 }
 .buttonArea {
     flex-direction: column;
