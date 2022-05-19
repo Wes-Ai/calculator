@@ -39,12 +39,10 @@ const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
 
 const display = document.getElementById("display");
-// const = document.getElementById("");
-
-
 
 const inputNumber = function(a) {
     display.textContent += a;
+    return display.textContent;
 }
 
 zero.addEventListener('click', () => inputNumber(zero.textContent));
