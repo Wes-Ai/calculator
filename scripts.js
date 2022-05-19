@@ -21,6 +21,12 @@ const operate = function(operator, a, b) {
     else if(operator === "-") {
         return subtract(a,b);
     }
+    else if(operator === "*") {
+        return multiply([a,b]);
+    }
+    else if(operator === "/") {
+        return divide([a,b]);
+    }
     else {
         return "Operation: ERROR";
     }
@@ -58,27 +64,50 @@ const display = document.getElementById("display");
     //Operate on main + sec
     //Main == answer (run main value?)
 
+let mainVal = '';
+let secVal = '';
+let currentOperator = '';
+
+const mainUpdate = function(a) {
+    mainVal = mainVal + a;
+    displayUpdate(mainVal);
+    console.log(mainVal);
+}
+
+const displayUpdate = function(a) {
+    display.textContent = a;
+}
+
+const operatorPressed = function(a) {
+    secVal = mainVal;
+    mainVal = '';
+    currentOperator = a;
+    // console.log('Main value: ' + mainVal);
+    // console.log('Sec value: ' + secVal);
+    // console.log('Operator chosen: ' + currentOperator);
+}
+
+const equalPressed = function(currentOperator) {
+    const sum = operate(currentOperator, secVal, mainVal);
+    mainVal = sum;
+    displayUpdate(mainVal);
+}
 
 
+equals.addEventListener('click', () => equalPressed(currentOperator));
 
+slash.addEventListener('click', () => operatorPressed('/'));
+pound.addEventListener('click', () => operatorPressed('*'));
+dash.addEventListener('click', () => operatorPressed('-'));
+cross.addEventListener('click', () => operatorPressed('+'));
 
-
-
-let operatorChosen = 0;
-
-equals.addEventListener('click', () => equalPress(operatorChosen));
-slash.addEventListener('click', () => operatorChosen = operatorPress('/'));
-pound.addEventListener('click', () => operatorChosen = operatorPress('*'));
-dash.addEventListener('click', () => operatorChosen = operatorPress('-'));
-cross.addEventListener('click', () => operatorChosen = operatorPress('+'));
-
-zero.addEventListener('click', () => inputNumber(zero.textContent));
-one.addEventListener('click', () => inputNumber(one.textContent));
-two.addEventListener('click', () => inputNumber(two.textContent));
-three.addEventListener('click', () => inputNumber(three.textContent));
-four.addEventListener('click', () => inputNumber(four.textContent));
-five.addEventListener('click', () => inputNumber(five.textContent));
-six.addEventListener('click', () => inputNumber(six.textContent));
-seven.addEventListener('click', () => inputNumber(seven.textContent));
-eight.addEventListener('click', () => inputNumber(eight.textContent));
-nine.addEventListener('click', () => inputNumber(nine.textContent));
+zero.addEventListener('click', () => mainUpdate('0'));
+one.addEventListener('click', () => mainUpdate('1'));
+two.addEventListener('click', () => mainUpdate('2'));
+three.addEventListener('click', () => mainUpdate('3'));
+four.addEventListener('click', () => mainUpdate('4'));
+five.addEventListener('click', () => mainUpdate('5'));
+six.addEventListener('click', () => mainUpdate('6'));
+seven.addEventListener('click', () => mainUpdate('7'));
+eight.addEventListener('click', () => mainUpdate('8'));
+nine.addEventListener('click', () => mainUpdate('9'));
