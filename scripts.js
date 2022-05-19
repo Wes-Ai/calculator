@@ -46,35 +46,26 @@ const cross = document.getElementById("cross");
 
 const display = document.getElementById("display");
 
-let xValue = 0;
-const inputNumber = function(a) {
-    xValue = display.textContent + a;
-    display.textContent = xValue;
+//Main value
+    //Update display when updated
+    //Store in variable
 
-    console.log(xValue);
-}
+//Operator pressed
+    //Display still same
+    //Clear main value to sec (secondary)
+
+//Equals pressed
+    //Operate on main + sec
+    //Main == answer (run main value?)
 
 
-const equalPress = function(a) {
-    console.log('The sign: '+a);
-    console.log('X val: ' + xValue);
-    console.log('Y val: ' + yValue);
-    console.log(operate(a, yValue, xValue));
-    console.log('ran!');
-}
 
-let yValue = 0;
-const operatorPress = function(a) {
-    yValue = xValue;
-    xValue = 0;
-    clearInput();
-    return a;
-}
 
-const clearInput = function() {
-    display.textContent = '';
-}
+
+
+
 let operatorChosen = 0;
+
 equals.addEventListener('click', () => equalPress(operatorChosen));
 slash.addEventListener('click', () => operatorChosen = operatorPress('/'));
 pound.addEventListener('click', () => operatorChosen = operatorPress('*'));
