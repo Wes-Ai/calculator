@@ -52,21 +52,13 @@ const cross = document.getElementById("cross");
 
 const display = document.getElementById("display");
 
-//Main value
-    //Update display when updated
-    //Store in variable
 
-//Operator pressed
-    //Display still same
-    //Clear main value to sec (secondary)
-
-//Equals pressed
-    //Operate on main + sec
-    //Main == answer (run main value?)
 
 let mainVal = '';
 let secVal = '';
 let currentOperator = '';
+let prevOperator = '';
+let onceOperator = false;
 
 const mainUpdate = function(a) {
     mainVal = mainVal + a;
@@ -78,19 +70,33 @@ const displayUpdate = function(a) {
 }
 
 const operatorPressed = function(a) {
-    secVal = mainVal;
-    mainVal = '';
     currentOperator = a;
-    // console.log('Main value: ' + mainVal);
-    // console.log('Sec value: ' + secVal);
-    // console.log('Operator chosen: ' + currentOperator);
+    if(onceOperator === false) {
+        onceOperator = true;
+        secVal = mainVal;
+        mainVal = '';
+        prevOperator = a;
+    } // need to pass in prev operator if operator is pressed twice
+    else {
+        equalPressed(prevOperator);
+        onceOperator = false;
+        operatorPressed(currentOperator);
+    }
 }
 
-const equalPressed = function(currentOperator) {
-    const sum = operate(currentOperator, secVal, mainVal);
+const equalPressed = function(funcOperator) {
+    console.log('Main value: ' + mainVal);
+    console.log('Sec value: ' + secVal);
+    console.log('Func operator value: ' + funcOperator);
+    console.log('Operator value: ' + currentOperator);
+    console.log('Prev operator value: ' + prevOperator);
+    const sum = operate(funcOperator, secVal, mainVal);
     mainVal = sum;
+    secVal = '';
+    onceOperator = false;
     displayUpdate(mainVal);
 }
+
 
 
 equals.addEventListener('click', () => equalPressed(currentOperator));
