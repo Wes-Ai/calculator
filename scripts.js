@@ -22,7 +22,7 @@ const operate = function(operator, a, b) {
         return subtract(a,b);
     }
     else {
-        return "ERROR";
+        return "Operation: ERROR";
     }
 }
 
@@ -38,12 +38,48 @@ const seven = document.getElementById("seven");
 const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
 
+const equals = document.getElementById("equals");
+const slash = document.getElementById("slash");
+const pound = document.getElementById("pound");
+const dash = document.getElementById("dash");
+const cross = document.getElementById("cross");
+
 const display = document.getElementById("display");
 
+let xValue = 0;
 const inputNumber = function(a) {
-    display.textContent += a;
-    return display.textContent;
+    xValue = display.textContent + a;
+    display.textContent = xValue;
+
+    console.log(xValue);
 }
+
+
+const equalPress = function(a) {
+    console.log('The sign: '+a);
+    console.log('X val: ' + xValue);
+    console.log('Y val: ' + yValue);
+    console.log(operate(a, yValue, xValue));
+    console.log('ran!');
+}
+
+let yValue = 0;
+const operatorPress = function(a) {
+    yValue = xValue;
+    xValue = 0;
+    clearInput();
+    return a;
+}
+
+const clearInput = function() {
+    display.textContent = '';
+}
+let operatorChosen = 0;
+equals.addEventListener('click', () => equalPress(operatorChosen));
+slash.addEventListener('click', () => operatorChosen = operatorPress('/'));
+pound.addEventListener('click', () => operatorChosen = operatorPress('*'));
+dash.addEventListener('click', () => operatorChosen = operatorPress('-'));
+cross.addEventListener('click', () => operatorChosen = operatorPress('+'));
 
 zero.addEventListener('click', () => inputNumber(zero.textContent));
 one.addEventListener('click', () => inputNumber(one.textContent));
