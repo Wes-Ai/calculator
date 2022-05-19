@@ -15,6 +15,9 @@ const divide = function(arr) {
 };
 
 const operate = function(operator, a, b) {
+    a = Number(a);
+    b = Number(b);
+    
     if(operator === "+") {
         return add(a,b);
     }
@@ -28,7 +31,7 @@ const operate = function(operator, a, b) {
         return divide([a,b]);
     }
     else {
-        return "Operation: ERROR";
+        return "ERROR";
     }
 }
 
@@ -61,11 +64,19 @@ let prevOperator = '';
 let onceOperator = false;
 
 const mainUpdate = function(a) {
+    checkBadDisplay();
     mainVal = mainVal + a;
     displayUpdate(mainVal);
 }
 
+const checkBadDisplay = function() {
+    if(display.textContent === 'ERROR' || display.textContent === 'NaN') {
+        mainVal = '';
+        display.textContent === '';
+    }
+}
 const displayUpdate = function(a) {
+    checkBadDisplay();
     display.textContent = a;
 }
 
