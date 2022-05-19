@@ -27,7 +27,7 @@ const operate = function(operator, a, b) {
 }
 
 // Create DOM elements
-const zero = document.getElementById("0");
+const zero = document.getElementById("zero");
 const one = document.getElementById("one");
 const two = document.getElementById("two");
 const three = document.getElementById("three");
@@ -44,7 +44,16 @@ const display = document.getElementById("display");
 
 
 const inputNumber = function(a) {
-    display.textContent = a;
+    display.textContent += a;
 }
 
 zero.addEventListener('click', () => inputNumber(zero.textContent));
+one.addEventListener('click', () => inputNumber(one.textContent));
+two.addEventListener('click', () => inputNumber(two.textContent));
+three.addEventListener('click', () => inputNumber(three.textContent));
+four.addEventListener('click', () => inputNumber(four.textContent));
+five.addEventListener('click', () => inputNumber(five.textContent));
+six.addEventListener('click', () => inputNumber(six.textContent));
+seven.addEventListener('click', () => inputNumber(seven.textContent));
+eight.addEventListener('click', () => inputNumber(eight.textContent));
+nine.addEventListener('click', () => inputNumber(nine.textContent));
