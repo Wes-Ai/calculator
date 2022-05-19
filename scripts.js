@@ -1,5 +1,5 @@
 const add = function(a, b) {
-    return a + b;
+    return (+b + +a);
 };
 
 const subtract = function(a, b) {
@@ -71,7 +71,6 @@ let currentOperator = '';
 const mainUpdate = function(a) {
     mainVal = mainVal + a;
     displayUpdate(mainVal);
-    console.log(mainVal);
 }
 
 const displayUpdate = function(a) {
