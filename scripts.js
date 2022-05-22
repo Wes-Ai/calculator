@@ -63,6 +63,13 @@ const evaluate = function() {
     updateDisplay(firstNum);
 }
 
+const clearData = function() {
+    firstNum = '';
+    secondNum = '';
+    currentOperator = null;
+    updateDisplay('0');
+}
+
 
 // Thank you to Aliaksandr Sushkevich
 // For simplified Event Listener logic.
@@ -92,11 +99,12 @@ wrapper.addEventListener('click', (event) => {
     }
   }
   else if(butt==='=') {
-    console.log('Its an equals! ' + butt);
+    //console.log('Its an equals! ' + butt);
     evaluate();
   }
   else if(butt==='clr') {
-    console.log('Its a clear! ' + butt);
+    //console.log('Its a clear! ' + butt);
+    clearData();
   }
   else if(butt==='del') {
     console.log('Its a delete! ' + butt);

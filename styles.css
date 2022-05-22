@@ -1,0 +1,13 @@
+.btn {
+    height: 70px;
+    width: 70px;
+    margin: 0px;
+}
+
+.buttonRow {
+    display: flex;
+}
+
+.display {
+    font-size: 48px;
+}
