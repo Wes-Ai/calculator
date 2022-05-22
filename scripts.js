@@ -35,19 +35,51 @@ const operate = function(operator, a, b) {
     }
 }
 
-const wrapper = document.getElementById('wrapper');
+const firstNum = '';
+const secondNum = '';
+const currentOperator = null;
+const display = document.getElementById("display");
+
+const updateDisplay = function() {
+    display.textContent = '';
+
+}
+
 
 // Thank you to Aliaksandr Sushkevich
 // For simplified Event Listener logic.
 // https://stackoverflow.com/questions/49680484
+const wrapper = document.getElementById('wrapper');
 wrapper.addEventListener('click', (event) => {
   const isButton = event.target.nodeName === 'BUTTON';
   if (!isButton) {
     return;
   }
 
+  const butt = event.target.id;
   // if(its a number)
   //    act on number logic
+  if(!isNaN(butt)) {
+      console.log('Its a number! ' + butt);
+
+  }
+  else if(butt==='+' || butt==='-' || butt==='*' || butt==='/') {
+    console.log('Its an operator! ' + butt);
+  }
+  else if(butt==='=') {
+    console.log('Its an equals! ' + butt);
+  }
+  else if(butt==='clr') {
+    console.log('Its a clear! ' + butt);
+    updateDisplay();
+  }
+  else if(butt==='del') {
+    console.log('Its a delete! ' + butt);
+  }
+  else if(butt==='.') {
+    console.log('Its a dot! ' + butt);
+  }
+
   // else if(its an operator + - / *)
   //    if(operator was previously pressed)
   //        evaluate.
@@ -61,5 +93,5 @@ wrapper.addEventListener('click', (event) => {
   // ...
   // add ., del, etc.
   // ...
-  console.log(event.target.id);
+  //console.log(event.target.id);
 })
