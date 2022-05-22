@@ -37,11 +37,29 @@ const operate = function(operator, a, b) {
 
 const wrapper = document.getElementById('wrapper');
 
+// Thank you to Aliaksandr Sushkevich
+// For simplified Event Listener logic.
+// https://stackoverflow.com/questions/49680484
 wrapper.addEventListener('click', (event) => {
   const isButton = event.target.nodeName === 'BUTTON';
   if (!isButton) {
     return;
   }
 
-  console.dir(event.target.id);
+  // if(its a number)
+  //    act on number logic
+  // else if(its an operator + - / *)
+  //    if(operator was previously pressed)
+  //        evaluate.
+  //        store operator
+  //    else
+  //        store operator
+  // else if(its =)
+  //    evaluate.
+  // else if(its clr)
+  //    clear all calc variables
+  // ...
+  // add ., del, etc.
+  // ...
+  console.log(event.target.id);
 })
