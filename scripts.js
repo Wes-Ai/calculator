@@ -45,7 +45,7 @@ const updateDisplay = function(text) {
 }
 
 const addToNum = function(num) {
-    if(currentOperator === null) {
+    if(currentOperator === null && firstNum === '') {
         firstNum = firstNum + num;
         updateDisplay(firstNum);
     }
@@ -57,10 +57,19 @@ const addToNum = function(num) {
 }
 
 const evaluate = function() {
-    firstNum = operate(currentOperator, firstNum, secondNum);
-    currentOperator = null;
-    secondNum = '';
-    updateDisplay(firstNum);
+    console.log(currentOperator + ' ope and num: ' + secondNum)
+    if(currentOperator === null) return;
+    else if(currentOperator === '/' && secondNum === '0') {
+        clearData();
+        updateDisplay('ERROR: Cannot divide by 0.');
+    }
+    else if (secondNum === '') return;
+    else {
+        firstNum = operate(currentOperator, firstNum, secondNum);
+        currentOperator = null;
+        secondNum = '';
+        updateDisplay(firstNum);
+    }
 }
 
 const clearData = function() {
