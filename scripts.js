@@ -45,7 +45,7 @@ const updateDisplay = function(text) {
 }
 
 const addToNum = function(num) {
-    if(currentOperator === null && firstNum === '') {
+    if(currentOperator === null) {
         firstNum = firstNum + num;
         updateDisplay(firstNum);
     }

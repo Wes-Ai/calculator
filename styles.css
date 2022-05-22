@@ -1,3 +1,9 @@
+/*@font-face {
+    font-family: 'DigitalNumbers';
+    src: url("\\fonts\\digital-7.ttf");
+}*/
+
+
 .btn {
     height: 70px;
     width: 70px;
@@ -10,4 +16,5 @@
 
 .display {
     font-size: 48px;
+    /*font-family: 'DigitalNumbers';*/
 }
