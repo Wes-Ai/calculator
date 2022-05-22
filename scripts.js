@@ -35,14 +35,32 @@ const operate = function(operator, a, b) {
     }
 }
 
-const firstNum = '';
-const secondNum = '';
-const currentOperator = null;
+let firstNum = '';
+let secondNum = '';
+let currentOperator = null;
 const display = document.getElementById("display");
 
-const updateDisplay = function() {
-    display.textContent = '';
+const updateDisplay = function(text) {
+    display.textContent = text;
+}
 
+const addToNum = function(num) {
+    if(currentOperator === null) {
+        firstNum = firstNum + num;
+        updateDisplay(firstNum);
+    }
+    else {
+        secondNum = secondNum + num;
+        updateDisplay(secondNum);
+    }
+    console.log(firstNum + ' and ' + secondNum);
+}
+
+const evaluate = function() {
+    firstNum = operate(currentOperator, firstNum, secondNum);
+    currentOperator = null;
+    secondNum = '';
+    updateDisplay(firstNum);
 }
 
 
@@ -60,18 +78,25 @@ wrapper.addEventListener('click', (event) => {
   // if(its a number)
   //    act on number logic
   if(!isNaN(butt)) {
-      console.log('Its a number! ' + butt);
-
+      //console.log('Its a number! ' + butt);
+      addToNum(butt);
   }
   else if(butt==='+' || butt==='-' || butt==='*' || butt==='/') {
-    console.log('Its an operator! ' + butt);
+    //console.log('Its an operator! ' + butt);
+    if(currentOperator === null) {
+        currentOperator = butt;
+    }
+    else {
+        evaluate();
+        currentOperator = butt;
+    }
   }
   else if(butt==='=') {
     console.log('Its an equals! ' + butt);
+    evaluate();
   }
   else if(butt==='clr') {
     console.log('Its a clear! ' + butt);
-    updateDisplay();
   }
   else if(butt==='del') {
     console.log('Its a delete! ' + butt);
