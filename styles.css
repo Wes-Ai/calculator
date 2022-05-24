@@ -1,13 +1,13 @@
-/*@font-face {
+@font-face {
     font-family: 'DigitalNumbers';
     src: url("\\fonts\\digital-7.ttf");
-}*/
+}
 
 
 .btn {
-    height: 70px;
-    width: 70px;
-    margin: 0px;
+    height: 5em;
+    width: 5em;
+    margin: 0.1em;
 }
 
 .buttonRow {
@@ -16,5 +16,18 @@
 
 .display {
     font-size: 48px;
-    /*font-family: 'DigitalNumbers';*/
+    font-family: 'DigitalNumbers';
+}
+
+.calculator {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
 }
