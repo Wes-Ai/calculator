@@ -53,11 +53,11 @@ const addToNum = function(num) {
         secondNum = secondNum + num;
         updateDisplay(secondNum);
     }
-    console.log(firstNum + ' and ' + secondNum);
+    //console.log(firstNum + ' and ' + secondNum);
 }
 
 const evaluate = function() {
-    console.log(currentOperator + ' ope and num: ' + secondNum)
+    //console.log(currentOperator + ' operator and num: ' + secondNum)
     if(currentOperator === null) return;
     else if(currentOperator === '/' && secondNum === '0') {
         clearData();
@@ -65,7 +65,8 @@ const evaluate = function() {
     }
     else if (secondNum === '') return;
     else {
-        firstNum = operate(currentOperator, firstNum, secondNum);
+        //Sum of operation, rounds to 5 decimal places.
+        firstNum = Number(operate(currentOperator, firstNum, secondNum).toFixed(5));
         currentOperator = null;
         secondNum = '';
         updateDisplay(firstNum);
@@ -90,15 +91,12 @@ wrapper.addEventListener('click', (event) => {
     return;
   }
 
+  //Determines what the user pressed; and runs connected logic.
   const butt = event.target.id;
-  // if(its a number)
-  //    act on number logic
   if(!isNaN(butt)) {
-      //console.log('Its a number! ' + butt);
       addToNum(butt);
   }
   else if(butt==='+' || butt==='-' || butt==='*' || butt==='/') {
-    //console.log('Its an operator! ' + butt);
     if(currentOperator === null) {
         currentOperator = butt;
     }
@@ -108,7 +106,6 @@ wrapper.addEventListener('click', (event) => {
     }
   }
   else if(butt==='=') {
-    //console.log('Its an equals! ' + butt);
     evaluate();
   }
   else if(butt==='clr') {
