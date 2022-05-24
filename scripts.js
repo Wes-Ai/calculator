@@ -61,7 +61,7 @@ const evaluate = function() {
     if(currentOperator === null) return;
     else if(currentOperator === '/' && secondNum === '0') {
         clearData();
-        updateDisplay('ERROR: Cannot divide by 0.');
+        updateDisplay('Only real eyes realize real lies.');
     }
     else if (secondNum === '') return;
     else {
@@ -92,6 +92,7 @@ wrapper.addEventListener('click', (event) => {
   }
 
   //Determines what the user pressed; and runs connected logic.
+  //Short for "button".
   const butt = event.target.id;
   if(!isNaN(butt)) {
       addToNum(butt);
@@ -109,28 +110,6 @@ wrapper.addEventListener('click', (event) => {
     evaluate();
   }
   else if(butt==='clr') {
-    //console.log('Its a clear! ' + butt);
     clearData();
   }
-  else if(butt==='del') {
-    console.log('Its a delete! ' + butt);
-  }
-  else if(butt==='.') {
-    console.log('Its a dot! ' + butt);
-  }
-
-  // else if(its an operator + - / *)
-  //    if(operator was previously pressed)
-  //        evaluate.
-  //        store operator
-  //    else
-  //        store operator
-  // else if(its =)
-  //    evaluate.
-  // else if(its clr)
-  //    clear all calc variables
-  // ...
-  // add ., del, etc.
-  // ...
-  //console.log(event.target.id);
 })
