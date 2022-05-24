@@ -3,11 +3,19 @@
     src: url("\\fonts\\digital-7.ttf");
 }
 
-
+body {
+    background-color: #121212;
+}
 .btn {
     height: 5em;
     width: 5em;
     margin: 0.1em;
+    color: #FFFFFF;
+    background-color: #252525;
+}
+.btn:hover {
+    background-color:#494949;
+    transition: 0.3s;
 }
 
 .buttonRow {
@@ -17,10 +25,13 @@
 .display {
     font-size: 48px;
     font-family: 'DigitalNumbers';
+    align-self: end;
+    color: #FFFFFF;
 }
 
 .calculator {
-    border: 1px solid red;
+    padding: 16px;
+    border: 4px outset black;
     display: flex;
     flex-direction: column;
 }
@@ -30,4 +41,8 @@
     justify-content: center;
     align-items: center;
     height: 500px;
+}
+
+.clear {
+    color: #ff0000;
 }

@@ -61,7 +61,7 @@ const evaluate = function() {
     if(currentOperator === null) return;
     else if(currentOperator === '/' && secondNum === '0') {
         clearData();
-        updateDisplay('Only real eyes realize real lies.');
+        updateDisplay('You zonked?');
     }
     else if (secondNum === '') return;
     else {
