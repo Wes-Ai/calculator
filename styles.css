@@ -7,11 +7,12 @@ body {
     background-color: #121212;
 }
 .btn {
-    height: 5em;
-    width: 5em;
-    margin: 0.1em;
+    font-size: 16px;
+    height: 70px;
+    width: 70px;
+    margin: 1px;
     color: #FFFFFF;
-    background-color: #252525;
+    background-color: #181818;
 }
 .btn:hover {
     background-color:#494949;
@@ -27,11 +28,13 @@ body {
     font-family: 'DigitalNumbers';
     align-self: end;
     color: #FFFFFF;
+    margin: 10px;
 }
 
 .calculator {
     padding: 16px;
-    border: 4px outset black;
+    border: 10px double #494949;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
 }
